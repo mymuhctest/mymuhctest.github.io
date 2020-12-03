@@ -1,0 +1,690 @@
+/* Add some margin to the page and set a default font and colour */
+body {
+    margin: 20px;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    line-height: 1.8em;
+    color: #333;
+    background-image: url('../img/numericBckgrd.png');
+    background-size: 100% 100%;
+    /* background-repeat: no-repeat, no-repeat; */
+    background-position: right, left;
+  }
+
+  /* Give headings their own font */
+
+  h1, h2, h3, h4, h5 {
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  }
+
+  /* Main content area */
+
+  .gameContent {
+    /* height: 800px;
+    width: 900px; */
+    min-width: 900px;
+    min-height: 780px;
+    max-width: 920px;
+    max-height: 820px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+    /* background: #abddec; */
+    text-align: center;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    /* border: 2px solid #333; */
+    border: 3px double #FFF;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    -moz-box-shadow: 0 0 .3em rgba(0, 0, 0, .8);
+    -webkit-box-shadow: 0 0 .3em rgba(0, 0, 0, .8);
+    box-shadow: 0 0 .3em rgba(0, 0, 0, .8);
+  }
+
+  /* Slots for final card positions */
+
+  .cardSlots {
+    /* margin-top: 50px; */
+    margin-left: auto;
+    margin-right: auto;
+    /* background: #ddf; */
+    /* width: 950px;
+    height: 290px; */
+    width: 820px;
+    height: 200px;
+    padding: 10px;
+    /* border: 2px solid #333;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    -moz-box-shadow: 0 0 .3em rgba(0, 0, 0, .8);
+    -webkit-box-shadow: 0 0 .3em rgba(0, 0, 0, .8);
+    box-shadow: 0 0 .3em rgba(0, 0, 0, .8); */
+  }
+  /* The initial pile of unsorted cards */
+
+  .cardPile {
+    /* margin: 0 auto; */
+    /* background: #ffd; */
+    margin-left: auto;
+    margin-right: auto;
+    /* width: 920px;
+    height: 220px; */
+    width: 820px;
+    height: 200px;
+    padding: 10px;
+    /* border: 2px solid #333;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    -moz-box-shadow: 0 0 .3em rgba(0, 0, 0, .8);
+    -webkit-box-shadow: 0 0 .3em rgba(0, 0, 0, .8);
+    box-shadow: 0 0 .3em rgba(0, 0, 0, .8); */
+  }
+
+
+  .gameTextHorizDiv {
+    clear: both;
+    /* float: inline-start; */
+    /* width: 920px; */
+    width: 800px;
+    min-width: 780px;
+    /* height: 160px; */
+    padding: 10px;
+    /* border: 1px solid #333; */
+    /* border: 2px solid #333; */
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    /* margin: 0 0 0 10px; */
+    margin-left: auto;
+    margin-right: auto;
+    /* background: #fff; */    
+  }
+  .gameTextVerticalDiv {
+    float: left;
+    width: 430px;
+    min-width: 430px;
+    height: 700px;
+    /* border: 1px solid #333; */
+    /* background: rgb(235, 217, 179);  */
+    /* border: 2px solid #333; */
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    /* margin: 0 0 0 10px; */
+    margin-left: auto;
+    margin-right: auto;
+    /* background: #fff; */    
+    display: flex;
+    justify-content: center; /* align horizontal */
+    align-items: center; /* align vertical */
+
+  }
+  .textMessage {
+    margin: 10px;
+    padding: 20px;
+    border: 1px solid #333;
+    background: rgb(235, 217, 179);
+    /* border: 2px solid #333; */
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background-image: none;
+    /* margin: 0 0 0 10px; */
+  }
+
+  .textMessageEmail {
+    /* margin-top: 20px; */
+    /* padding: 250px 20px 250px 20px; */
+    /* border: 2px solid #333; */
+    padding: 55% 5px 50% 5px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    /* margin: 0 0 0 10px; */
+    background-image: url('../img/png_2xEmailArrow.png');
+    background-size:100% 100%;
+    background-repeat: no-repeat, no-repeat;
+    background-position: right, left;
+  }
+
+  .textMessageFiles {
+    margin: 0px;
+    /* padding: 60px 80px 80px 80px; */
+    padding: 9% 10% 9% 10%;
+    /* border: 2px solid #333; */
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    /* margin: 0 0 0 10px; */
+    background-image: url('../img/png_FilesArrow.png');
+    background-size: 80% 100%;
+    background-repeat: no-repeat, no-repeat;
+    background-position: center;
+    /* background-position: right, left; */
+  }
+
+  .textMessageCloud {
+    margin-top: 20px;
+    /* padding: 110px 80px 40px 80px; */
+    padding: 15% 10% 5% 10%;
+    /* border: 2px solid #333; */
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    /* margin: 0 0 0 10px; */    
+    background-image: url('../img/png_Cloud2Arrow.png');
+    background-size: 80% 100%;
+    background-repeat: no-repeat, no-repeat;
+    background-position: center;
+    /* background-position: right, left; */
+    -moz-background-size: cover;
+    -o-background-size: cover;
+   
+  }
+
+  .imgTxtClear {
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+  }
+
+  .cardPileVertical {
+    float: left;
+    margin: 0 auto;
+    background: #ffd;
+    width: 220px;
+    height: 780px;
+    /* width: 200px;
+    height: 820px; */
+    margin-top: -15px;
+    padding: 5px 5px 5px 5px;
+    /* border: 2px solid #333; */
+    /*
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    -moz-box-shadow: 0 0 .3em rgba(0, 0, 0, .8);
+    -webkit-box-shadow: 0 0 .3em rgba(0, 0, 0, .8);
+    box-shadow: 0 0 .3em rgba(0, 0, 0, .8); */
+  }
+
+  .cardSlotsVertical {
+    float: left;
+    width: 220px;
+    height: 780px;
+    /* width: 200px;
+    height: 820px; */
+    margin-top: -15px;
+    padding: 5px 5px 5px 5px;
+    background: #ffd;
+    /* border: 2px solid #333;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    -moz-box-shadow: 0 0 .3em rgba(0, 0, 0, .8);
+    -webkit-box-shadow: 0 0 .3em rgba(0, 0, 0, .8);
+    box-shadow: 0 0 .3em rgba(0, 0, 0, .8); */
+  }
+
+  /* Individual cards and slots */
+
+  #cardSlots div, #cardPile div {
+    float: left;
+    /* left: 100px; */
+    width: 180px;
+    height: 180px;
+    padding: 5px 5px 5px 5px;
+    /* padding-top: 5px;
+    padding-bottom: 1; */
+    margin-left: auto;
+    margin-right: auto;
+    /* border: 2px solid #333; */
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    line-height: 1.3;
+    /* margin: 0 0 0 10px; */
+    /* background: #fff; */
+  }
+
+  #cardPile div{
+    margin-left: 5px;
+    margin-right: 5px;
+    /* background: #ffd; */
+  }
+
+  #cardSlots div.hovered {
+    background: #aaa;
+  }
+
+  /* #cardSlots div {
+    border-style: dashed;
+  } */
+
+  #cardPile div {
+    /* background: rgb(223, 212, 215); */
+    color: #fff;
+    font-size: 50px;
+    text-shadow: 0 0 3px #000;
+  }
+
+  #cardPile div.ui-draggable-dragging {
+    -moz-box-shadow: 0 0 .5em rgba(0, 0, 0, .8);
+    -webkit-box-shadow: 0 0 .5em rgba(0, 0, 0, .8);
+    box-shadow: 0 0 .5em rgba(0, 0, 0, .8);
+  }
+
+  /* Individually coloured cards */
+  #card1.correct { background: rgb(196, 233, 137); }
+  #card1.incorrect { background: rgb(243, 69, 16); }
+
+  /* #card1.correct { background: red; }
+  #card2.correct { background: brown; }
+  #card3.correct { background: orange; }
+  #card4.correct { background: yellow; }
+  #card5.correct { background: green; }
+  #card6.correct { background: cyan; }
+  #card7.correct { background: blue; }
+  #card8.correct { background: indigo; }
+  #card9.correct { background: purple; }
+  #card10.correct { background: violet; } */
+
+
+  /* "You did it!" message */
+  #successMessage {
+    position: absolute;
+    left: auto;
+    right: auto;
+    top: 20%;
+    width: 0;
+    height: 0;
+    z-index: 100;
+    background: #dfd;
+    border: 2px solid #333;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    -moz-box-shadow: .3em .3em .5em rgba(0, 0, 0, .8);
+    -webkit-box-shadow: .3em .3em .5em rgba(0, 0, 0, .8);
+    box-shadow: .3em .3em .5em rgba(0, 0, 0, .8);
+    padding: 20px 20px 40px 20px;
+  }
+  /* "You fail!" message */
+  #failedMessage {
+    position: absolute;
+    /* left: 25%; */
+    left: auto;
+    right: auto;
+    top: 20%;
+    width: 0;
+    height: 0;
+    z-index: 100;
+    background: rgb(240, 119, 97);
+    border: 2px solid #333;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    -moz-box-shadow: .3em .3em .5em rgba(0, 0, 0, .8);
+    -webkit-box-shadow: .3em .3em .5em rgba(0, 0, 0, .8);
+    box-shadow: .3em .3em .5em rgba(0, 0, 0, .8);
+    padding: 20px 20px 40px 20px;
+  }
+
+  /* "Could be better!" - Info message */
+  #infoMessage {
+    position: absolute;
+    /* left: 25%; */
+    left: auto;
+    right: auto;
+    top: 20%;
+    width: 0;
+    height: 0;
+    z-index: 100;
+    background: rgb(246, 238, 116);
+    border: 2px solid #333;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    -moz-box-shadow: .3em .3em .5em rgba(0, 0, 0, .8);
+    -webkit-box-shadow: .3em .3em .5em rgba(0, 0, 0, .8);
+    box-shadow: .3em .3em .5em rgba(0, 0, 0, .8);
+    padding: 20px 20px 40px 20px;
+  }
+
+  .initMessage {
+    position: relative;
+    /* position: absolute; */
+    /* left: 20%;
+    top: 120px; */
+    /* clear: both;
+    float: none; */
+    margin-top: 10px;
+    margin-bottom: 10%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 800px;
+    /* height: 600px; */
+    z-index: 100;
+    /* background: #dfd; */
+    /* background: rgb(170, 170, 170); */
+    background: rgb(230, 230, 230);
+    /* border: 2px solid #333; */
+    border: 5px double #FFF;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    -moz-box-shadow: .3em .3em .5em rgba(0, 0, 0, .8);
+    -webkit-box-shadow: .3em .3em .5em rgba(0, 0, 0, .8);
+    box-shadow: .3em .3em .5em rgba(0, 0, 0, .8);
+    padding: 20px;
+  }
+
+  .initContMainDiv {
+    float: none;
+    width: 95%;
+    /* height: 450px; */
+    padding: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border: 2px solid #333;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    margin: 5px;
+    margin-top: 15px;
+  }
+  #leftTopColMsg {
+    float: left;
+    width: 45%;
+    height: 200px;
+    padding: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border: 2px solid #333;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    margin: auto;
+    background: rgb(238, 232, 196);
+  }
+  #leftBotColMsg {
+    float: left;
+    width: 45%;
+    height: 200px;
+    padding: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border: 2px solid #333;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    /* margin-top: 10px; */
+    margin: auto;
+    margin-top: 15px;
+    background: #abcbf5;
+  }
+  #rightTopColMsg {
+    float: right;
+    width: 45%;
+    height: 200px;
+    padding: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border: 2px solid #333;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    /* margin-top: 10px; */
+    margin: auto;
+    background: 	#ec9b9b;
+  }
+  #rightBotColMsg {
+    float: right;
+    width: 45%;
+    height: 200px;
+    padding: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border: 2px solid #333;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    /* margin-top: 10px; */
+    margin: auto;
+    margin-top: 15px;
+    background: rgb(177, 236, 231);
+  }
+
+  .class-backgroundDiv {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    float: none;
+    width: 100%;
+    height: 100%;
+    background: rgb(0,0,0,0.71);
+    background-image: url('../img/numericBckgrd.png');
+    background-size: 100% 100%;
+    /* background-repeat: no-repeat, no-repeat; */
+    background-position: right, left;
+    z-index: 99;
+  }
+  .class-dimBackground {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    float: none;
+    width: 100%;
+    height: 100%;
+    background: rgb(0,0,0,0.3);
+    opacity: 0.5;
+    /* background-image: url('img/numericBckgrd.png'); */
+    background-size: 100% 100%;
+    /* background-repeat: no-repeat, no-repeat; */
+    background-position: right, left;
+    z-index: 99;
+  }
+
+
+  .class-selectGame {
+    margin: auto;
+    padding-top: 10px;
+    /*
+    border: 2px solid #333; */
+    text-align: center;
+  }
+
+  .class-selectGame tr,td {
+    margin: 20px;
+    padding: 1px;
+    /* border: 5px solid #333; */
+    text-align: center;
+    font-weight: bold;
+    /* text-shadow: 1px 1px #370438; */
+    color: rgb(35, 0, 160);
+    /* color: rgb(138, 5, 138); */
+    font-size: 1.5em;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  }
+
+  .class-starWhite {
+    color: #fff;
+    text-shadow: 1px 1px #370438;
+  }
+
+  .class-starYellow {
+    color: yellow;
+    text-shadow: 1px 1px #370438;
+  }
+
+  .class-starRed {
+    color: red;
+    text-shadow: 1px 1px #370438;
+  }
+
+    /* Header/footer boxes */
+
+    .wideBox {
+      position: relative;
+      clear: both;
+      width: 860px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      text-align: center;
+      padding: 10px;
+      background: #e1f1df;
+      min-width: 850px;
+      border: 2px solid #FFF;
+      /* border: 2px solid #333; */
+      -moz-border-radius: 10px;
+      -webkit-border-radius: 10px;
+      border-radius: 10px;
+      /* text-shadow: 1px 1px #FC00FF; */
+    }
+
+    .wideBox h1 {
+      font-weight: bold;
+      margin: 10px;
+      color: rgb(3, 2, 3);
+      font-size: 1.5em;
+    }
+
+  .class-closeX {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    font-weight: bold;
+    color: black;
+    text-align: center;
+    height: 50px;
+    width: 50px;
+    /* background-image: url('img/closeIconRound.png');   */
+    background-image: url('../img/returnIconGreyRoundSquare.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat, no-repeat;
+    background-position: right, left;
+  }
+
+  .class-textMsg h1 {
+      font-weight: bold;
+      color: rgb(3, 2, 3);
+      font-size: 1.5em;
+      /* background: #e1f1df; */
+  }
+
+  .class-digitalMediumMsg {
+    background-color: none;
+    margin-left: 30px;
+    margin-right: 30px;
+    padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .class-emailsMsg {
+    background-color: none;
+    /* border: 1px solid grey; */
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2px;
+  }
+
+  .class-cloudsMsg {
+    background-color: none;
+    margin-left: 20px;
+    margin-right: 20px;
+    padding: 10px;
+  }
+
+  .class-iconText {
+    margin-top: -10px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .class-gameHint {
+    padding: 0%;    
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1.1em;
+  }
+
+  .class-gameHint:hover {
+    /* background-color: yellow; */
+    color: rgb(89, 10, 163);
+    /* font-size: 1.3em; */
+  }
+
+  .class-langBox {
+    /* padding: 5px;     */
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 100;
+  }
+
+
+  .class-lang {
+    /*  a:link, a:visited */
+    background-color: #615d5d;
+    color: white;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+  }
+
+  #topRowMsg {
+    float: none;
+    /* width: 98%;
+    height: 60px; */
+    padding: 5px;
+    padding-top: 0;
+    padding-bottom: 5px;
+    border: 2px solid #333;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    margin: 5px;
+    background: #333;
+    text-align: center;
+    /* text-shadow: 2px 2px #FC00FF; */
+    color: white;
+  }
+  
+  #titleDiv {    
+    float: left;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #langDiv {
+    float: left;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 10px;
+  }
+
+  #containerTitles {
+    clear: both;
+    height: 80px;
+  }
+
+  #progressBarDiv {
+    width: 100%;
+    background-color: grey;
+  }
+
+  #progressBar {
+    width: 1%;
+    height: 30px;
+    background-color: green;
+  }
+
+  

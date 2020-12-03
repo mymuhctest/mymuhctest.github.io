@@ -1,0 +1,135 @@
+
+<!doctype html>
+<html lang="fr">
+<head>
+    <title>Information Security Week 3 Mini-Games Challenge</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="icon" 
+      type="image/png" 
+      href="img/ShieldSpartan.png" />
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="scripts/dragdropcode.js"></script>       
+</head>
+<body>  
+  <div id="backgroundDiv" class="class-backgroundDiv"> </div>  
+  <div class="initMessage" id="selectGame" >    
+    <div id="topRowMsg">
+      <div id="containerTitles">
+        <div id="titleDiv">
+          <h3>
+            <span id="titleTxt">
+              Appliquez les normes de classification</br>pour la sécurité de l'information au CUSM
+            </span> 
+          </h3>
+        </div>
+        <div id="langDiv">
+          <span id="langBox" class="class-lang" onmouseover="this.style.cursor='pointer';" onclick="changeLang();"><span id="langTxt" value="FR">EN</span></span>
+          <input type="hidden" id="langID" name="langID" value="ENG">
+        </div>      
+      </div>
+      <!-- <div id="langDiv" class="class-langDiv">
+        <div id="langLink" class="class-lnagLink">changer la langue: FR</div>
+      </div> -->
+    </div>
+    
+    <div class="initContMainDiv">
+      <table id="selectGame" class="class-selectGame">        
+        <th> <span id="col1Title"> Support </br> numérique </span> </th><th><span id="col2Title"> Courriel </br> électronique </span> </th><th><span id="col3Title"> Stockage </br> dans le nuage </span> </th>
+        <tr>
+          <td></br></br>
+            <img src="img/USB_drive.png" alt="transportDocuments" width="100" height="180" onclick="clickTopRight()" onmouseover="this.style.cursor='pointer';">
+          </td>
+          <td></br></br>
+            <img src="img/Email.png" alt="Messages_Security" width="180" height="190" onclick="leftBotColMsg()" onmouseover="this.style.cursor='pointer';">
+          </td>
+          <td></br></br>
+            <img src="img/noun_Cloud_3193592.png" alt="cloudServiceSecurity" width="200" height="150" onclick="rightBotColMsg()" onmouseover="this.style.cursor='pointer';">
+          </td>
+        </tr>
+        <tr>
+          <td><span id="gameOne" class="class-starWhite">&#9733; &#9733; &#9733; &#9733;</span></td>
+          <td><span id="gameTwo" class="class-starWhite">&#9733; &#9733; &#9733; &#9733;</span></td>
+          <td><span id="gameThree" class="class-starWhite">&#9733; &#9733; &#9733; &#9733;</span></td>
+        </tr>
+        <tr>
+          <td colspan="3" id="gameHint" class="class-gameHint">
+            <!-- <span id="gameHint" class="class-gameHint"></span> -->
+          </td>
+        </tr>
+        <!-- <tr>
+          <td colspan="3">
+            <div id="progressBarDiv" style = "display: none;">
+              <div id="progressBar"></div>
+            </div>
+          </td>
+        </tr> -->
+      </table>
+      
+
+    </div>
+  </div>
+  <div id="pageHeader" class="wideBox">    
+    <div id="textMsg" class="class-textMsg"><h2>Appliquez les normes de classification</br>pour la sécurité de l'information au CUSM</h2></div>
+    <div id="closeX" class="class-closeX" onclick="closeTheGame()" onmouseover="this.style.cursor='pointer';"></div>
+  </div>
+
+  <div id="content" class="gameContent">
+
+    <!-- <div id="cardPileGame1"></div>
+    <div id="cardPileGame2"></div>    
+    <div id="cardSlotsGame3"></div> -->
+
+    <div id="cardPile"></div>
+
+    <div id="gameTextDiv">
+        <div id="imgTxtMessage">
+          <div id="textMessage" class="textMessage">
+            
+          </div>
+        </div>
+    </div>
+
+    <div id="cardSlots"></div>
+
+    <!-- <div id="cardSlotsGame1"></div>
+    <div id="cardSlotsGame2"></div>
+    <div id="cardPileGame3"></div> -->
+
+    <div id="successMessage">
+      <h2><span id="msgCongrats"> Bien joué ! </span></h2>
+      <button id="btnSuccess" onclick="init()">Jouer à un autre mini-jeu</button>
+    </div>
+
+    <div id="failedMessage">
+      <h2><span id="msgFail"> Désolé, mauvaise réponse </span></h2>
+      <button id="btnFail" onclick="clearWrongDrop()"> Réessayez</button>
+    </div>
+
+    <div id="infoMessage">
+      <h2><span id="msgTryAgain"> Ce choix est possible,</br> mais il n'est pas optimal. </span></h2>
+      <button id="btnTryAgain" onclick="clearWrongDrop()">Réessayez</button>
+    </div>
+  </div>
+
+<!-- <div id="pageFoolter" class="wideBox">(c) 2020 MUHC
+</div> -->
+<script type="text/javascript">
+  var gameHintTitleEN = "GOAL: In every minigame, documents of 4 different types (classified as Sensitive, Confidential, Restricted and public)" +
+                        " must be stored or sent to third parties, complying with MUHC\'s information security standards." +
+                        " Drag-and-drop every document to the most appropriate placeholder.";
+  var gameHintTitleFR = "BUT DU JEU:" +
+                        " Dans chaque mini-jeu, des documents de 4 types différents " +
+                        " (classés comme sensibles, confidentiels, restreints et publics) doivent être sauvegardés ou envoyés à des tiers, " +
+                        " conformément aux normes de sécurité de l\'information du CUSM. " +
+                        " Glissez-déposez chaque document dans  l\'espace de gestion de l\'information le plus approprié."; 
+
+    var gameHintBox = document.getElementById("gameHint");    
+    gameHintBox.innerHTML = '<h6>'+gameHintTitleFR+'</h6>'; 
+  
+</script>
+</body>
+</html>
+
