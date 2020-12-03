@@ -247,7 +247,7 @@ var correctCards = 0;
 
     function init() {
         //set initial images:      
-               
+                     
         var langTxt = document.getElementById("langTxt").textContent.trim();
          
        // console.log('Lang value langTxt:',langTxt);
@@ -284,8 +284,8 @@ var correctCards = 0;
         // adding a class: class-backgroundDiv     
         $('#backgroundDiv').removeClass('class-dimBackground');
         $('#backgroundDiv').addClass('class-backgroundDiv');
-        $('#backgroundDiv').show();      
-            
+        $('#backgroundDiv').show();               
+        
         // show game selector:
         $('#selectGame').show();
         //hidePageObjecs();      
@@ -339,6 +339,7 @@ var correctCards = 0;
                     revert: true
                     } );
             }
+            
             //$("#gameTextDiv").html(gameText);
             $("#textMessage").html('<h4>'+gameText+'</h4>');
             $("#textMessage").removeClass(); // removind all classes 'gameTxtClass' : 'class-emailsMsg',
@@ -476,7 +477,7 @@ var correctCards = 0;
           // Manage Document Store and transportation + USB
         // $( init );
         //showPageObjecs();
-        
+        showPageObjecs();
         if ( isFlip === true ) {            
             m = $('#cardPile');
             n = $('#cardSlots');
@@ -507,7 +508,7 @@ var correctCards = 0;
       }
       function leftBotColMsg() { 
         // $( init );
-        //showPageObjecs();
+        showPageObjecs();
         if ( isFlip === true ) {            
                 m = $('#cardPile');
                 n = $('#cardSlots');
@@ -538,7 +539,7 @@ var correctCards = 0;
 
       function rightBotColMsg() { 
         // $( init );      
-        //showPageObjecs();
+        showPageObjecs();
         $('#cardPile').removeClass();
         $('#cardSlots').removeClass();
 
@@ -588,6 +589,7 @@ var correctCards = 0;
       }
 
 function closeTheGame() {
+    hidePageObjecs();
     checkGameState(objectId);
 
     $('#cardPile').removeClass("cardPileVertical");
@@ -689,8 +691,9 @@ function checkGameState (objId) {
 function hidePageObjecs() {
     // using jQuery
     //console.log('!!! Time to hide page content!');
+    $('#pageHeader').hide();
     $("#content").hide(); 
-    $("#pageFoolter").hide();
+    // $("#pageFoolter").hide();
     // $("#selectGame").hide();
     // $('#backgroundDiv').hide();     
     
@@ -704,8 +707,9 @@ function hidePageObjecs() {
 function showPageObjecs() {
     // using jQuery
     //console.log('!!! Time to show page content!');
+    $('#pageHeader').show();
     $("#content").show(); 
-    $("#pageFoolter").show();
+    // $("#pageFoolter").show();
 }
 
 

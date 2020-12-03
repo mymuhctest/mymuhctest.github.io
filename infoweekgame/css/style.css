@@ -332,6 +332,7 @@ body {
     -webkit-box-shadow: .3em .3em .5em rgba(0, 0, 0, .8);
     box-shadow: .3em .3em .5em rgba(0, 0, 0, .8);
     padding: 20px 20px 40px 20px;
+    /* animation: square-animation 5s infinite; */
   }
 
   /* "Could be better!" - Info message */
@@ -353,6 +354,7 @@ body {
     -webkit-box-shadow: .3em .3em .5em rgba(0, 0, 0, .8);
     box-shadow: .3em .3em .5em rgba(0, 0, 0, .8);
     padding: 20px 20px 40px 20px;
+    /* animation: square-animation 5s infinite; */
   }
 
   .initMessage {
