@@ -1,5 +1,5 @@
 
-//=======================EmailTo: azap_ad@yahoo.com 2020 ==============================
+//=======================EmailTo: azap_ad@yahoo.com 2020 & 2021 ==============================
 var correctCards = 0;
     var objectId = 0;    
     var uiObj = null;
@@ -9,12 +9,12 @@ var correctCards = 0;
     var isFlip = false;
     var publicDocImg = "img/documentsPilePub.png";
     var confDocImg = "img/documentsPileConf.png";
-    var restrDocImg = "img/documentsPileRest.png";
-    var sensDocImg = "img/documentsPileSens.png";
+    var restrDocImg = "img/documentsPileGeneral.png";
+    var sensDocImg = "img/documentsPileHIGHLY_CONFIDENTIAL_2Row.png";
     var publicDocImgFR = "img/documentsPilePub.png";
-    var confDocImgFR = "img/documentsPileConf_FRA.png";
-    var restrDocImgFR = "img/documentsPileRestreint_FRA.png";
-    var sensDocImgFR = "img/documentsPileSensible_FRA.png";        
+    var confDocImgFR = "img/documentsPileCONFIDENTIELLES_FRA.png";
+    var restrDocImgFR = "img/documentsPileGENERALES_FRA.png";
+    var sensDocImgFR = "img/documentsPileHAUTEMENT_CONFIDENTIELS_2Row_FRA.png";        
     
     $( init );
     var arrObjects = [
@@ -358,11 +358,6 @@ var correctCards = 0;
                     } );
             }
 
-            // $('<div>' + imgDest[k].img + '<h4 style="margin-top: -10px;">' + imgDest[k].txt + '</h4></div>').data( 'number', imgDest[k].id ).appendTo( '#cardSlots' ).droppable( {
-            //     accept: '#cardPile div',
-            //     hoverClass: 'hovered',
-            //     drop: handleCardDrop
-            //     } );
         }   
     }
 
@@ -396,11 +391,7 @@ var correctCards = 0;
             // if this is incorrect card dropped:
             ui.draggable.addClass( 'incorrect' );
             uiObj = ui;
-            //console.log('Incorrect: uiObj: ',uiObj);
-            //ui.draggable.draggable( 'disable' );
-            //$(this).droppable( 'disable' );
-            //ui.draggable.position( { of: $(this), my: 'left top', at: 'left top' } );
-            //ui.draggable.draggable( 'option', 'revert', false );
+            
             $('#backgroundDiv').addClass('class-dimBackground');
             $('#backgroundDiv').show();  
             $(msgObj).show();
@@ -411,7 +402,7 @@ var correctCards = 0;
                 height: '100px',
                 opacity: 1
             } );
-            //ui.draggable.removeClass();
+            
         }
         // If all the cards have been placed correctly then display a message
         // and reset the cards for another go
@@ -423,8 +414,7 @@ var correctCards = 0;
             width: '400px',
             height: '100px',
             opacity: 1
-            } );
-            //console.log(' objectId = ', objectId,' - time to swap the values!')
+            } );            
         }
         checkGameState(objectId);
     }
@@ -462,10 +452,7 @@ var correctCards = 0;
     }
 
     function leftTopColMsg() {   
-        //   $("#rightTopColMsg").click(function(){
-        //     $("#selectGame").hide();
-        // });
-        //showPageObjecs();
+       
         objectId=0;
         init();
         $("#selectGame").hide();  
@@ -474,9 +461,7 @@ var correctCards = 0;
         $('#imgTxtMessage').removeClass("textMessageEmail");
       }
       function clickTopRight() { 
-          // Manage Document Store and transportation + USB
-        // $( init );
-        //showPageObjecs();
+          // Manage Document Store and transportation + USB        
         showPageObjecs();
         if ( isFlip === true ) {            
             m = $('#cardPile');
@@ -565,9 +550,7 @@ var correctCards = 0;
         $('#cardPile').addClass("cardPile");
         $('#cardSlots').addClass("cardSlots");
         $('#gameTextDiv').removeClass("gameTextVerticalDiv");
-        // $('#imgTxtMessage').removeClass("textMessageFiles");
-        // $('#imgTxtMessage').removeClass("textMessageEmail");
-        //$('#imgTxtMessage').removeClass("textMessageCloud")
+        
         $('#gameTextDiv').addClass("gameTextHorizDiv");
         $('#imgTxtMessage').addClass("textMessageCloud");
         $('#textMessage').addClass("imgTxtClear");                
@@ -693,15 +676,7 @@ function hidePageObjecs() {
     //console.log('!!! Time to hide page content!');
     $('#pageHeader').hide();
     $("#content").hide(); 
-    // $("#pageFoolter").hide();
-    // $("#selectGame").hide();
-    // $('#backgroundDiv').hide();     
     
-    // $('#cardPile').hide();
-    // $('#cardSlots').hide();
-    // $('#gameTextDiv').hide();
-    // $('#imgTxtMessage').hide();  
-    // $('#textMessage').hide();
 }
 
 function showPageObjecs() {
@@ -709,7 +684,7 @@ function showPageObjecs() {
     //console.log('!!! Time to show page content!');
     $('#pageHeader').show();
     $("#content").show(); 
-    // $("#pageFoolter").show();
+    
 }
 
 
@@ -729,10 +704,7 @@ function changeLang () {
     var msgCongrats = document.getElementById("msgCongrats");
     var msgFail = document.getElementById("msgFail");
     var msgTryAgain = document.getElementById("msgTryAgain");
-
-    // var col1Title = document.getElementById("col1Title");
-    // var col2Title = document.getElementById("col2Title");
-    // var col3Title = document.getElementById("col3Title");
+    
     
     if (langValue == 'FRA') {
       langTxt = 'EN';
@@ -756,7 +728,7 @@ function changeLang () {
       
     } else {
       langTxt = 'FR';
-      //langObj.textContent = 'EN';
+      
       titleTxt = "Practice MUHC\'s classification standards </br> for Information security";
       gameHintTitle = gameHintTitleEN;
       langValue = 'FRA';
@@ -773,8 +745,7 @@ function changeLang () {
 
       document.getElementById("langID").value = langValue;
       console.log('Next Lang Value: ',langValue);
-      //langObj.innerHTML = langTxt;  
-      // document.getElementById("titleTxt").innerHTML  = "Practice MUHC\'s classification standards for Information security";
+      
     }
 
     titleObj.innerHTML = titleTxt;
@@ -794,12 +765,7 @@ function sleepNow() {
             setInterval(function(){
                 if(tmr) timer.innerText = ++cnt;
             },10);
-
-	// return new Promise(resolve => {
-	// 	setTimeout(() => {
-	// 		resolve()
-	// 	}, duration * 1000)
-	// })
+	
 }  
 
 function drawProgress() {
