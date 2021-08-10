@@ -10,3 +10,7 @@ When game starts:
 3. In the new wiondow drug and drop an item representing the document type (sensitive, restricted, confidentioa or public) to the appropriate placeholder.
 
 Have fun!
+
+
+Updates:
+v1.0.2: Updated information classification labels (images) and text labels according to the recent updated.
